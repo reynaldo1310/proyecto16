@@ -5,11 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi aplicación</title>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <style>
+        /* Estilo para el título Maestro */
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilo básico para los botones */
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            text-align: center;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border-radius: 5px;
+        }
+
+        /* Botón Refrescar (cuadro azul) */
+        #refrescar {
+            background-color: #007bff; /* Azul */
+        }
+
+        /* Botón Nuevo (cuadro rojo) */
+        #nuevo {
+            background-color: #dc3545; /* Rojo */
+        }
+
+        /* Estilo para la lista de solicitudes */
+        #listaSolicitudes {
+            margin-top: 20px;
+        }
+
+        /* Estilo para el formulario */
+        #form-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <div>
         <!-- Botones de acción -->
-        <button id="listar" class="btn">Listar Solicitudes</button>
+        <button id="listar" class="btn">Maestro</button>
+    <hr>
         <button id="nuevo" class="btn">Nuevo</button>
         <button id="borrar" class="btn">Borrar</button>
     </div>
