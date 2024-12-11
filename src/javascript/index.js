@@ -21,21 +21,29 @@ $(document).ready(function () {
         ];
 
 
-    // Evento click para que cargue el array en tabla
-$("#boton_maestro").on('click', function (event) {
-    let $maestro = $('#maestro tbody');
-
-    for (i = 0; i < solicitudes.length; i++) {
-        let $linea = $('<tr>');
-        $linea.append($('<td>').text(solicitudes[i].id));
-        $linea.append($('<td>').text(solicitudes[i].nombre));
-        $linea.append($('<td>').text(solicitudes[i].apellido));
-        $maestro.append($linea);
+        for (i = 0 ; i < solicitudes.length; i++ ) {
+            $("#maestro").append(
+                $("<li>")
+                    .text(solicitudes[i].nombre + ' ' + solicitudes[i].apellido)
+                    .val(solicitudes[i])
+                    .attr("id", "id" + solicitudes[i].id)
+            );
         }
-
-    $("#boton_maestro").hide();
-    $("#boton_texto").show();
     
     
+    
+        $("li").on("click", function(event) {
+            if ($("#detalle").is(':visible')) {
+                $("#detalle").hide();
+            } else {
+                $("#detalle").show();
+    
+                let solicitud = $(this).attr("id");
+    
+                $("#id").val(solicitud);
+                $("#nombre").val("Juan"  + solicitud);
+                $("#apellido").val("Secreto" + solicitud);            
+            }
+            
+        })
     });
-});

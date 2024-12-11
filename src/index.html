@@ -7,41 +7,22 @@
     <script src="../node_modules/jquery/dist/jquery.js"></script>
 </head>
 <body>
-    <fieldset class="databox">
-    <button id="boton_maestro">Datos</button>
-    <table id="maestro">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-            </tr>
-        </thead>
-        <tbody>
+    <button id="boton">Cómeme</button>
 
-        </tbody>
-    </table>
-    </fieldset>
-    <fieldset class="detallebox">
-        <legend><b>Detalle</b></legend>
-        <div id="detalle" hidden>
+    <h1>Maestro</h1>
+    <ul id="maestro">
 
-            <form>
-                <input type="hidden" id="id" name="id">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre">
-                <br>
-                <label for="apellido">Apellido:</label>
-                <input type="text" id="apellido" name="apellido">
-            </form>
-        </div>
-        <br>
-        <button id="boton_texto" hidden>Duplicado texto</button>
-        <textarea id="texto" name="texto" rows="4" cols="50"> </textarea>
-
-    </fieldset>    
-
+    </ul>
+    <div id="detalle" hidden>
+        <h1>Detalle</h1>
+        <form>
+            <input type="hidden" id="id" name="id">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido">
+        </form>
+    </div>
     <script src="./javascript/index.js"></script>
 </body>
-
 </html>
