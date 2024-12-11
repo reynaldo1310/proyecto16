@@ -7,20 +7,28 @@
     <script src="../node_modules/jquery/dist/jquery.js"></script>
 </head>
 <body>
-    <button id="boton">Cómeme</button>
+    <div>
+        <!-- Botones de acción -->
+        <button id="listar" class="btn">Listar Solicitudes</button>
+        <button id="nuevo" class="btn">Nuevo</button>
+        <button id="borrar" class="btn">Borrar</button>
+    </div>
 
-    <h1>Maestro</h1>
-    <ul id="maestro">
+    <!-- Lista de solicitudes -->
+    <ul id="listaSolicitudes"></ul>
 
-    </ul>
-    <div id="detalle" hidden>
-        <h1>Detalle</h1>
-        <form>
-            <input type="hidden" id="id" name="id">
+    <!-- Contenedor de formulario de detalles (para Nuevo y Editar) -->
+    <div id="form-container">
+        <h3>Detalle Solicitud</h3>
+        <form id="detalle-form">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre">
+            <input type="text" id="nombre" name="nombre" required>
+            <br><br>
             <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido">
+            <input type="text" id="apellido" name="apellido" required>
+            <br><br>
+            <button type="button" id="guardar" class="btn">Guardar</button>
+            <button type="button" id="cancelar" class="btn">Cancelar</button>
         </form>
     </div>
     <script src="./javascript/index.js"></script>

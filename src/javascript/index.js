@@ -1,49 +1,75 @@
-$(document).ready(function () {
-
-    // Tabla de Arrays 
-    let solicitudes = [{
-        "id": 1,
-        "nombre": "Juan",
-        "apellido": "Secreto"
-        }, {
-        "id": 2,
-        "nombre": "Antonio",
-        "apellido": "Pero"
-        }, {
-        "id": 3,
-        "nombre": "de la Encarnación",
-        "apellido": "No tanto"
-         }, {
-        "id": 4,
-        "nombre": "Rey",
-        "apellido": "Contreras"
-        }
-        ];
-
-
-        for (i = 0 ; i < solicitudes.length; i++ ) {
-            $("#maestro").append(
-                $("<li>")
-                    .text(solicitudes[i].nombre + ' ' + solicitudes[i].apellido)
-                    .val(solicitudes[i])
-                    .attr("id", "id" + solicitudes[i].id)
-            );
-        }
-    
-    
-    
-        $("li").on("click", function(event) {
-            if ($("#detalle").is(':visible')) {
-                $("#detalle").hide();
-            } else {
-                $("#detalle").show();
-    
-                let solicitud = $(this).attr("id");
-    
-                $("#id").val(solicitud);
-                $("#nombre").val("Juan"  + solicitud);
-                $("#apellido").val("Secreto" + solicitud);            
-            }
-            
+$(function() {
+    console.log('Paso por aquí');
+    $("#listar").on("click", function() {
+        $.get("https://my-json-server.typicode.com/desarrollo-seguro/proyecto17/solicitudes", function(data) {
+            $("#resListar").text("Ok");
+            $("#resListar").attr("data-midato", data);
+            console.log(data);
         })
+        
     });
+    $("#leer").on("click", function() {
+        $.get("https://my-json-server.typicode.com/desarrollo-seguro/proyecto17/solicitudes/1", function(data) {
+            $("#resLeer").text("Ok"); 
+            console.log(data);
+        })
+        
+    });
+
+
+    $('#crear').on('click',function() {
+        $.ajax({
+            url: "https://my-json-server.typicode.com/desarrollo-seguro/proyecto17/solicitudes",
+            method: "POST",
+            "data": JSON.stringify({
+                id: 0,
+                nombre: "Juan",
+                apellido: "Otro"
+            }),
+            success: function(data) {
+                $("#resCrear").text("Ok"); 
+                console.log(data);
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    });
+
+
+    $('#actualizar').on('click',function() {
+        $('#principal > button[]')
+
+        $(this).addClass('mio')
+        $.ajax({
+            url: "https://my-json-server.typicode.com/desarrollo-seguro/proyecto17/solicitudes/2",
+            method: "PUT",
+            "data": JSON.stringify({
+                id: 1,
+                nombre: "Juan",
+                apellido: "Otro"
+            }),
+            success: function(data) {
+                $("#resActualizar").text("Ok"); 
+                console.log(data);
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    });
+
+    $('#borrar').on('click',function() {
+        $.ajax({
+            url: "https://my-json-server.typicode.com/desarrollo-seguro/proyecto17/solicitudes/1",
+            method: "DELETE",
+            success: function(data) {
+                $("#resBorrar").text("Ok"); 
+                console.log(data);
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    });
+});
