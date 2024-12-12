@@ -1,0 +1,49 @@
+body {
+    width: 95%;
+    margin: 10px auto;
+}
+#tabla {
+    width: 100%;
+    margin-top: 20px;
+}
+#tabla *{
+    text-align: center;
+}
+
+#tabla tr td, #tabla th {
+    padding: 10px;
+}
+
+#tabla thead, #tabla tr{
+    border-bottom: 2px solid #ccc;
+}
+
+.btn:hover {
+    background-color: #ccc;
+    color: black;
+    border: 1px solid black;
+}
+.detalle, .detalleUpdate{
+    width: 50%;
+    margin-top: 5%;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .detalle, .detalleUpdate {
+        width: 100%;
+    }
+}
+
+/* Detalle*/
+
+.oculto {
+    display: none;
+}
+.visible {
+    display: block;
+}
+
+.botonesDetalle{
+    margin-top: 10px;
+}
